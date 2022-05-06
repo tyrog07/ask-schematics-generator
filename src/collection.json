@@ -1,0 +1,10 @@
+{
+    "schematics": {
+      "ask": {
+        "aliases": [ "mnu" ],
+        "factory": "./ask",
+        "description": "Generates a ask component",
+        "schema": "./ask/schema.json"
+      }
+    }
+}
