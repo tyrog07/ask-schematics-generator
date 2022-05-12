@@ -1,6 +1,6 @@
 {
   "name": "ask-schematics-generator",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A schematics generator for ask admin panel",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -15,13 +15,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/rajatninawe/ask-schematics-generator.git"
-  },
-  "dependencies": {
-    "@angular-devkit/core": "^0.6.0",
-    "@angular-devkit/schematics": "^0.6.0",
-    "@types/jasmine": "^2.6.0",
-    "@types/node": "^8.0.31",
-    "jasmine": "^2.8.0",
-    "typescript": "^2.5.2"
   }
 }
