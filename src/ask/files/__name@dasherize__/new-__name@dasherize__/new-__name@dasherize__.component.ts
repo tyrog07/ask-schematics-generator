@@ -2,7 +2,7 @@ import { <%= classify(name) %>Service } from "./../../../shared/services/firebas
 import { <%= classify(name) %>Model } from "./../../../shared/model/<%=dasherize(name)%>.model";
 import { Component, Inject, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 
 @Component({
   selector: "app-new-<%=dasherize(name)%>",

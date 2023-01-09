@@ -1,107 +1,107 @@
-    <div class="main-content" data-color="primary" data-background-color="black">
-        <div class="container-fluid">
-          <div class="card card-details mat-elevation-z8">
-            <div
-              class="card-header card-header-primary"
-              style="position: sticky; top: 5px; z-index: 100"
+<div class="main-content" data-color="primary" data-background-color="black">
+  <div class="container-fluid">
+    <div class="card card-details mat-elevation-z8">
+      <div
+        class="card-header card-header-primary"
+        style="position: sticky; top: 5px; z-index: 100"
+      >
+        <h4 class="card-title">
+          <%= classify(name) %>
+          <div class="right-header-btn">
+            <button
+              mat-raised-button
+              (click)="onCreate()"
+              class="btn btn-sm btn-success success-btn"
             >
-              <h4 class="card-title">
-                <%= classify(name) %>
-                <div class="right-header-btn">
-                  <button
-                    mat-raised-button
-                    (click)="onCreate()"
-                    class="btn btn-sm btn-success"
-                  >
-                    <span class="material-icons"> add </span>
-                    Add
-                  </button>
-                  <button
-                    mat-raised-button
-                    (click)="onUpdate($event)"
-                    class="btn-info btn btn-sm ml-2"
-                    [disabled]="!selection.hasValue()"
-                  >
-                    <span class="material-icons"> edit </span>
-                    Edit
-                  </button>
-                  <button
-                    mat-raised-button
-                    (click)="onDelete()"
-                    class="btn-danger btn btn-sm ml-2"
-                    [disabled]="!selection.hasValue()"
-                  >
-                    <span class="material-icons"> delete_forever </span>
-                    Delete
-                  </button>
-                </div>
-              </h4>
-            </div>
-            <div class="card-body">
-              <mat-form-field>
-                <input
-                  matInput
-                  (keyup)="applyFilter($event.target.value)"
-                  placeholder="Filter"
-                />
-              </mat-form-field>
-              <div
-                class="table-responsive"
-                style="
-                  margin-top: 10px;
-                  max-height: calc(100vh - 325px);
-                  overflow: auto;
-                "
-              >
-                <table
-                  mat-table
-                  [dataSource]="dataSource"
-                  class="table table-striped"
-                  matSort
-                >
-                  <ng-container matColumnDef="check">
-                    <th mat-header-cell *matHeaderCellDef></th>
-                    <td mat-cell *matCellDef="let row">
-                      <mat-checkbox
-                        (click)="$event.stopPropagation()"
-                        (change)="$event ? selection.toggle(row) : null"
-                        [checked]="selection.isSelected(row)"
-                      >
-                      </mat-checkbox>
-                    </td>
-                  </ng-container>
-                  <ng-container matColumnDef="name">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>NAME</th>
-                    <td mat-cell *matCellDef="let row">
-                      {{ row.name | titlecase }}
-                    </td>
-                  </ng-container>
-                  <!-- matTooltip="Tooltips in Angular" -->
-                  <ng-container matColumnDef="zipcode">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>ZIPCODE</th>
-                    <td mat-cell *matCellDef="let row">{{ row.zipcode }}</td>
-                  </ng-container>
-      
-                  <ng-container matColumnDef="value">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Tax</th>
-                    <td mat-cell *matCellDef="let row">{{ row.value }}%</td>
-                  </ng-container>
-      
-                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                  <tr
-                    mat-row
-                    *matRowDef="let row; columns: displayedColumns"
-                    (click)="rowSelection(row)"
-                  ></tr>
-                </table>
-              </div>
-              <mat-paginator
-                [length]="100"
-                [pageSize]="10"
-                [pageSizeOptions]="pageSizeop"
-              >
-              </mat-paginator>
-            </div>
+              <span class="material-icons"> add </span>
+              Add
+            </button>
+            <button
+              mat-raised-button
+              (click)="onUpdate($event)"
+              class="btn-info btn btn-sm ml-2 orange-btn"
+              [disabled]="!selection.hasValue()"
+            >
+              <span class="material-icons"> edit </span>
+              Edit
+            </button>
+            <button
+              mat-raised-button
+              (click)="onDelete()"
+              class="btn-danger btn btn-sm ml-2 red-btn"
+              [disabled]="!selection.hasValue()"
+            >
+              <span class="material-icons"> delete_forever </span>
+              Delete
+            </button>
           </div>
-        </div>
+        </h4>
       </div>
+      <div class="card-body">
+        <mat-form-field class="filter-input">
+          <input
+            matInput
+            (keyup)="applyFilter($event.target.value)"
+            placeholder="Filter"
+          />
+        </mat-form-field>
+        <div
+          class="table-responsive"
+          style="
+            margin-top: 10px;
+            max-height: calc(100vh - 325px);
+            overflow: auto;
+          "
+        >
+          <table
+            mat-table
+            [dataSource]="dataSource"
+            class="table table-striped"
+            matSort
+          >
+            <ng-container matColumnDef="check">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox
+                  (click)="$event.stopPropagation()"
+                  (change)="$event ? selection.toggle(row) : null"
+                  [checked]="selection.isSelected(row)"
+                >
+                </mat-checkbox>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>NAME</th>
+              <td mat-cell *matCellDef="let row">
+                {{ row.name | titlecase }}
+              </td>
+            </ng-container>
+            <!-- matTooltip="Tooltips in Angular" -->
+            <ng-container matColumnDef="zipcode">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>ZIPCODE</th>
+              <td mat-cell *matCellDef="let row">{{ row.zipcode }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="value">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Tax</th>
+              <td mat-cell *matCellDef="let row">{{ row.value }}%</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr
+              mat-row
+              *matRowDef="let row; columns: displayedColumns"
+              (click)="rowSelection(row)"
+            ></tr>
+          </table>
+        </div>
+        <mat-paginator
+          [length]="100"
+          [pageSize]="10"
+          [pageSizeOptions]="pageSizeop"
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

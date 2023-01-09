@@ -1,13 +1,11 @@
 import { <%= classify(name) %>Service } from "./../../shared/services/firebase-api/<%=dasherize(name)%>.service";
 import { New<%= classify(name) %>Component } from "./new-<%=dasherize(name)%>/new-<%=dasherize(name)%>.component";
 import { Component, OnInit, ViewChild } from "@angular/core";
-import {
-  MatPaginator,
-  MatDialog,
-  MatSort,
-  MatTableDataSource,
-  MatSnackBar,
-} from "@angular/material";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatDialog } from "@angular/material/dialog";
+import { MatSort } from "@angular/material/sort";
+import { MatTableDataSource } from "@angular/material/table";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 import { SelectionModel } from "@angular/cdk/collections";
 import { DialogService } from "../../components";
