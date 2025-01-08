@@ -1,6 +1,6 @@
 {
   "name": "ask-schematics-generator",
-  "version": "1.1.2",
+  "version": "1.1.21",
   "description": "A schematics generator for ask admin panel",
   "scripts": {
     "build": "tsc -p tsconfig.json",
