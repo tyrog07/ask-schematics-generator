@@ -1,0 +1,22 @@
+name: Validate PR Source Branch
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-source-branch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check PR Source Branch
+        run: |
+          if [ "${{ github.base_ref }}" == "master" ] && [ "${{ github.head_ref }}" != "develop" ]; then
+            echo "Pull requests to the master branch must come from the develop branch."
+            exit 1
+          fi
+
+          if [ "${{ github.head_ref }}" == "master" ]; then
+            echo "Pull requests from the master branch are not allowed."
+            exit 1
+          fi
